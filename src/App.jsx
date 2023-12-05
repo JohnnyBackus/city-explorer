@@ -1,33 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import axios from 'axios';
+import LocationForm from './components/LocationForm';
+import Map from './components/Map';
+const API_KEY = import.meta.env.VITE_LOCATION_API_KEY;
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [city, setCity] = useState('');
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  console.log(API_KEY);
+  
+  function handleExploreCity(cityInput) {
+    getLocation(cityInput);
+  }
+
+  async function getLocation(cityName){
+    let url = `https://us1.locationiq.com/v1/search?key=${API_KEY}&q=${cityName}&format=json`;
+    console.log(url);
+    try {
+      let response = await axios.get(url);
+      setCity(response.data[0].display_name)
+      setLatitude(response.data[0].lat);
+      setLongitude(response.data[0].lon);
+    } catch(error) {
+      console.error(error.message)
+    }
+
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
       <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div>
+        <LocationForm city={city} handleExploreCity={handleExploreCity} lat={latitude} long={longitude} />
+        <Map lat={latitude} long={longitude} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
