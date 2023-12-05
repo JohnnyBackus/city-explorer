@@ -26,7 +26,7 @@ function App() {
       setLatitude(response.data[0].lat);
       setLongitude(response.data[0].lon);
     } catch(error) {
-      console.error(error.message)
+      console.error(`Could not retrieve data: ${error}`)
     }
 
   }
