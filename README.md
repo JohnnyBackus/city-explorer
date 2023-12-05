@@ -2,6 +2,7 @@
 
 **Author**: Johnny Backus
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**API keys**: see env.local
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
@@ -30,15 +31,15 @@ Estimate of time needed to complete: 60
 
 Start time: 1420
 
-Finish time: _____
+Finish time: 1630
 
-Actual time needed to complete: _____
+Actual time needed to complete: 130
 
-### Name of feature: ________________________________
+### Name of feature: Locations
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 90
 
-Start time: _____
+Start time: 1640
 
 Finish time: _____
 
