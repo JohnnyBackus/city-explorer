@@ -41,9 +41,9 @@ Estimate of time needed to complete: 90
 
 Start time: 1640
 
-Finish time: _____
+Finish time: 2100
 
-Actual time needed to complete: _____
+Actual time needed to complete: 260
 
 For each of the lab features, make an estimate of the time it will take you to complete the feature, and record your start and finish times for that feature:
 
