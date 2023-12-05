@@ -2,7 +2,7 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import axios from 'axios';
-import LocationForm from './components/LocationForm';
+import LocationForm from './components/Location';
 import Map from './components/Map';
 const API_KEY = import.meta.env.VITE_LOCATION_API_KEY;
 
