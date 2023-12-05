@@ -19,7 +19,7 @@ function LocationForm(props) {
     }
 
     return (
-    <>
+        <>
         <Form onSubmit = {handleSubmit}>
         <Form.Label htmlFor="citySearchInput">Search your city here!</Form.Label>
         <InputGroup className="mb-3">
@@ -40,8 +40,8 @@ function LocationForm(props) {
         <CityLatLongAccordian city = {props.city} lat={props.lat} long={props.long} />
         }
         </Form>
-    </>
-  );
+        </>
+    );
 }
 
 export default LocationForm;
