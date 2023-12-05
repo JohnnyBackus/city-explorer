@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 import LocationForm from './components/Location';
 import Map from './components/Map';
+import ErrorAlert from './components/ErrorAlert';
 const API_KEY = import.meta.env.VITE_LOCATION_API_KEY;
 
 
@@ -11,7 +12,7 @@ function App() {
   const [city, setCity] = useState('');
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
-  console.log(API_KEY);
+  const [errorMessage, setErrorMessage] = useState('');
   
   function handleExploreCity(cityInput) {
     getLocation(cityInput);
@@ -26,9 +27,8 @@ function App() {
       setLatitude(response.data[0].lat);
       setLongitude(response.data[0].lon);
     } catch(error) {
-      console.error(error.message)
+      setErrorMessage(error.message);
     }
-
   }
 
   return (
@@ -37,6 +37,7 @@ function App() {
       <div>
         <LocationForm city={city} handleExploreCity={handleExploreCity} lat={latitude} long={longitude} />
         <Map lat={latitude} long={longitude} />
+        <ErrorAlert errorMessage={errorMessage} />
       </div>
     </>
   )
