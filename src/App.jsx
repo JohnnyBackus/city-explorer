@@ -4,17 +4,18 @@ import './App.css';
 import axios from 'axios';
 import LocationForm from './components/Location';
 import Map from './components/Map';
+import Weather from './components/Weather';
 import ErrorAlert from './components/ErrorAlert';
 const LOCATION_API_KEY = import.meta.env.VITE_LOCATION_API_KEY;
-const WEATHER_API = import.meta.env.VITE_WEATHER_API_URL;
+const API = import.meta.env.VITE_API_URL;
 
 
 function App() {
   const [city, setCity] = useState('');
-  const [latitude, setLatitude] = useState(null);
+  const [latitude, setLatitude] = useState(null);   
   const [longitude, setLongitude] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
-  const [weatherData, setWeatherData] = useState([]);
+  const [weatherData, setWeatherData] = useState(null);
   
   function handleExploreCity(cityInput) {
     getLocation(cityInput);
@@ -28,30 +29,23 @@ function App() {
       setCity(response.data[0].display_name)
       setLatitude(response.data[0].lat);
       setLongitude(response.data[0].lon);
+      getWeatherData(response.data[0].lat, response.data[0].lon);
       console.log(response.data[0].lat);
     } catch(error) {
       setErrorMessage(error.message);
     }
   }
 
-  async function getWeatherData(type) {
+  async function getWeatherData(lat, lon) {
     try {
-      let response = await axios.get(`${WEATHER_API}/weather?type=${type}`);
+      let response = await axios.get(`${API}/weather`, 
+      {params: {lat:lat,lon:lon}});
       console.log(response);
       setWeatherData(response.data);
+      console.log(response.data);
     } catch(error) {
       console.error(error.message);
     }
-  }
-
-  function getLat() {
-    // ?type=food
-    getWeatherData("food");
-  }
-
-  function getLong() {
-    // type=supplies
-    getWeatherData("supplies");
   }
 
   return (
@@ -61,6 +55,7 @@ function App() {
         <LocationForm city={city} handleExploreCity={handleExploreCity} lat={latitude} long={longitude} />
         <Map lat={latitude} long={longitude} />
         <ErrorAlert errorMessage={errorMessage} />
+        <Weather weatherData={weatherData} />
       </div>
     </>
   )
