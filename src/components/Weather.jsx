@@ -2,6 +2,7 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
+{/* <i className={`wi-day-${forecastCode[1]}`}></i> */}
 
 function Weather(props) {
     console.log(props);
@@ -13,6 +14,7 @@ function Weather(props) {
         const forecastDescription = forecast.map(item => item.description);
         const forecastLowTemp = forecast.map(item => item.lowTemp);
         const forecastMaxTemp = forecast.map(item => item.maxTemp);
+        const forecastIcon = forecast.map(item => item.icon);
         return (
         <Container>
             <h3> Three Day Forecast for {city} </h3> 
@@ -27,7 +29,7 @@ function Weather(props) {
                     </Card.Body>
                 </Card>
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
+                    <Card.Img variant="top" src={`src/assets/icons${forecastIcon[2]}`} />
                     <Card.Body>
                     <Card.Title>Forecast for {forecastDate[2]}</Card.Title>
                         <Card.Text>

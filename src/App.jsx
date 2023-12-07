@@ -8,7 +8,7 @@ import Weather from './components/Weather';
 import Movies from './components/Movies';
 import ErrorAlert from './components/ErrorAlert';
 const LOCATION_API_KEY = import.meta.env.VITE_LOCATION_API_KEY;
-const SERVER = import.meta.env.VITE_RENDER_URL;
+const SERVER = import.meta.env.VITE_LOCAL_URL;
 
 
 function App() {
@@ -52,8 +52,9 @@ function App() {
   }
 
   async function getMovieData(city) {
+    const cityName = city.split(',')[0].trim();
     try {
-      let response = await axios.get(`${SERVER}/movies?city=${city}`);
+      let response = await axios.get(`${SERVER}/movies?city=${cityName}`);
       // console.log(response);
       setMovieData(response.data);
       console.log(response.data);
