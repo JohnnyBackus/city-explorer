@@ -8,7 +8,7 @@ import Weather from './components/Weather';
 import Movies from './components/Movies';
 import ErrorAlert from './components/ErrorAlert';
 const LOCATION_API_KEY = import.meta.env.VITE_LOCATION_API_KEY;
-const API = import.meta.env.VITE_LOCAL_URL;
+const SERVER = import.meta.env.VITE_LOCAL_URL;
 
 
 function App() {
@@ -40,9 +40,9 @@ function App() {
   }
 
   async function getWeatherData(lat, lon) {
-    console.log(`${API}/weather`)
+    console.log(`${SERVER}/weather`)
     try {
-      let response = await axios.get(`${API}/weather?lat=${lat}&lon=${lon}`);
+      let response = await axios.get(`${SERVER}/weather?lat=${lat}&lon=${lon}`);
       console.log(response);
       setWeatherData(response.data);
       console.log(response.data);
@@ -53,7 +53,7 @@ function App() {
 
   async function getMovieData(city) {
     try {
-      let response = await axios.get(`${API}/movies?city=${city}`);
+      let response = await axios.get(`${SERVER}/movies?city=${city}`);
       // console.log(response);
       setMovieData(response.data);
       console.log(response.data);
@@ -69,7 +69,7 @@ function App() {
         <LocationForm city={city} handleExploreCity={handleExploreCity} lat={latitude} long={longitude} />
         <Map lat={latitude} long={longitude} />
         <ErrorAlert errorMessage={errorMessage} />
-        {/* <Weather weatherData={weatherData} /> */}
+        <Weather weatherData={weatherData} />
         <Movies movieData={movieData} />
       </div>
     </>

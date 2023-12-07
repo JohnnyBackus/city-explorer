@@ -8,7 +8,7 @@ function Weather(props) {
     if (props.weatherData) {
         const city = props.weatherData[0].city;
         const forecast = [...props.weatherData];
-        console.log(forecast);
+        // console.log(forecast);
         const forecastDate = forecast.map(item => item.date);
         const forecastDescription = forecast.map(item => item.description);
         const forecastLowTemp = forecast.map(item => item.lowTemp);
@@ -46,7 +46,6 @@ function Weather(props) {
                 </Card>
             </Row>
         </Container>
-        // </When>
     )}
 }
 
