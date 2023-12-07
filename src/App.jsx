@@ -7,7 +7,7 @@ import Map from './components/Map';
 import Weather from './components/Weather';
 import ErrorAlert from './components/ErrorAlert';
 const LOCATION_API_KEY = import.meta.env.VITE_LOCATION_API_KEY;
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_LOCAL_URL;
 
 
 function App() {
@@ -37,9 +37,11 @@ function App() {
   }
 
   async function getWeatherData(lat, lon) {
+    console.log(`${API}/weather`)
     try {
-      let response = await axios.get(`${API}/weather`, 
-      {params: {lat:lat,lon:lon}});
+      // let response = await axios.get(`${API}/weather`, 
+      // {params: {lat:lat,lon:lon}});
+      let response = await axios.get(`${API}/weather?lat=${lat}&lon=${lon}`);
       console.log(response);
       setWeatherData(response.data);
       console.log(response.data);
