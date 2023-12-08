@@ -20,7 +20,7 @@ function Weather(props) {
             <h3> Three Day Forecast for {city} </h3> 
             <Row>
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={`src/assets/icons/${forecastIcon[0]}.png`} />
+                    <Card.Img variant="top" src={`public/icons/${forecastIcon[0]}.png`} />
                     <Card.Body>
                         <Card.Title>Forecast for Today</Card.Title>
                         <Card.Text>
@@ -29,7 +29,7 @@ function Weather(props) {
                     </Card.Body>
                 </Card>
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={`src/assets/icons/${forecastIcon[1]}.png`} />
+                    <Card.Img variant="top" src={`public/icons/${forecastIcon[1]}.png`} />
                     <Card.Body>
                     <Card.Title>Forecast for {forecastDate[1]}</Card.Title>
                         <Card.Text>
@@ -38,7 +38,7 @@ function Weather(props) {
                     </Card.Body>
                 </Card>
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={`src/assets/icons/${forecastIcon[2]}.png`} />
+                    <Card.Img variant="top" src={`public/icons/${forecastIcon[2]}.png`} />
                     <Card.Body>
                     <Card.Title>Forecast for {forecastDate[2]}</Card.Title>
                         <Card.Text>
