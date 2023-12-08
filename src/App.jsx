@@ -8,7 +8,7 @@ import Weather from './components/Weather';
 import Movies from './components/Movies';
 import ErrorAlert from './components/ErrorAlert';
 const LOCATION_API_KEY = import.meta.env.VITE_LOCATION_API_KEY;
-const SERVER = import.meta.env.VITE_LOCAL_URL;
+const SERVER = import.meta.env.VITE_RENDER_URL;
 
 
 function App() {
