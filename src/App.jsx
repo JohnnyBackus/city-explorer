@@ -52,8 +52,9 @@ function App() {
   }
 
   async function getMovieData(city) {
+    const cityName = city.split(',')[0].trim();
     try {
-      let response = await axios.get(`${SERVER}/movies?city=${city}`);
+      let response = await axios.get(`${SERVER}/movies?city=${cityName}`);
       // console.log(response);
       setMovieData(response.data);
       console.log(response.data);
