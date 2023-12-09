@@ -1,7 +1,7 @@
 # City-Explorer
 
 **Author**: Johnny Backus
-**Version**: 1.7.3 (I lost count)
+**Version**: 1.7.7 (I lost count)
 **API keys**: see env.sample
 
 ## Overview
@@ -12,7 +12,7 @@ For this project we will be making API calls from our server, processing the inf
 
 Here is a photo-realistic representation of this process we call the Web Request-Response Cycle...
 
-![hand-drawing of web resquest-response cycle](src/assets/WRRC.png)
+![hand-drawing of web resquest-response cycle](public/WRRC.png)
 
 ## Change Log
 12.4.23: Project initiated. Local server built with calls to local .json files.
@@ -21,7 +21,7 @@ Here is a photo-realistic representation of this process we call the Web Request
 12.7.23: Front end and back end fully deployed from remote hosting services.
 
 ## Credit and Collaborations
-Much help received from TAs Brandon, Tammy, and Kjell. Also from Instructor John.
+Much help received throughout week from TAs Brandon, Tammy, and Kjell. Also from Instructor John.
 ChatGPT had several helpful (and some not-so-helpful) hints (the first conversation was from a group warm up code exercise and was unrelated to this project): https://chat.openai.com/share/6f8f03cb-89c9-46f2-b817-f152a3290c40
 
 ## Time Estimates
